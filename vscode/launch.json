@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "type": "java",
+          "name": "Photos34",
+          "request": "launch",
+          "mainClass": "photos.Photos34",
+          "vmArgs": "--module-path \"C:\\Users\\Adrian\\openjfx-21.0.6_windows-x64_bin-sdk\\javafx-sdk-21.0.6\\lib\" --add-modules javafx.controls,javafx.fxml"
+      }
+  ]
+}
