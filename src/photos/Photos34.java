@@ -1,24 +1,34 @@
 package photos;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import photos.model.DataManager;
 
 public class Photos34 extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        // Simple test UI
-        Label label = new Label("Hello from Klever and Shrij!");
-        StackPane root = new StackPane();
-        root.getChildren().add(label);
-        
-        Scene scene = new Scene(root, 300, 200);
-        primaryStage.setTitle("Photos App");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        try {
+            // Load login scene
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/photos/view/login.fxml"));
+            Parent root = loader.load();
+            
+            // Set up the stage
+            primaryStage.setTitle("Photo Album");
+            primaryStage.setScene(new Scene(root, 400, 300));
+            primaryStage.setResizable(false);
+            primaryStage.show();
+            
+            // Set up close request handler to save data when the application is closed
+            primaryStage.setOnCloseRequest(event -> {
+                DataManager.getInstance().saveData();
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     public static void main(String[] args) {
