@@ -16,13 +16,13 @@ public class Photos34 extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/photos/view/login.fxml"));
             Parent root = loader.load();
             
-            // Set up the stage
+            // Seting up the stage
             primaryStage.setTitle("Photo Album");
             primaryStage.setScene(new Scene(root, 400, 300));
             primaryStage.setResizable(false);
             primaryStage.show();
             
-            // Set up close request handler to save data when the application is closed
+            // Seting up close request handler to save data when the application is closed
             primaryStage.setOnCloseRequest(event -> {
                 DataManager.getInstance().saveData();
             });

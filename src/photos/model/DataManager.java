@@ -10,8 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Handles saving and loading data between app sessions.
- * Uses serialization to store users, albums and photos.
+ * Manages data persistence for the photo album application.
  * @author Klever and Shrij
  */
 public class DataManager {
@@ -23,12 +22,11 @@ public class DataManager {
     private Map<String, User> users;
     private User currentUser;
     
-    // Singleton pattern - only need one data manager
     private static DataManager instance;
     
     /**
-     * Gets the single instance of DataManager.
-     * Creates it if it doesn't exist yet.
+     * Gets the singleton instance of the DataManager.
+     * @return The DataManager instance
      */
     public static DataManager getInstance() {
         if (instance == null) {
@@ -38,8 +36,7 @@ public class DataManager {
     }
     
     /**
-     * Private constructor so only getInstance() can create DataManager.
-     * Loads existing data from disk if available.
+     * Private constructor to enforce singleton pattern.
      */
     private DataManager() {
         users = new HashMap<>();
@@ -52,28 +49,29 @@ public class DataManager {
     }
     
     /**
-     * Gets the admin object.
+     * Gets the admin.
+     * @return The admin
      */
     public Admin getAdmin() {
         return admin;
     }
     
     /**
-     * Gets the currently logged in user.
-     * @return Current user or null if nobody is logged in
+     * Gets the current user.
+     * @return The current user, or null if no user is logged in
      */
     public User getCurrentUser() {
         return currentUser;
     }
     
     /**
-     * Logs in a user.
-     * @param username The username to log in
-     * @return true if login successful, false if user doesn't exist
+     * Sets the current user.
+     * @param username The username of the user to set as current
+     * @return true if successful, false if no such user exists
      */
     public boolean setCurrentUser(String username) {
         if (username.equals(Admin.getAdminUsername())) {
-            currentUser = null; // Admin isn't a regular user
+            currentUser = null; // Admin is not a regular user
             return true;
         }
         
@@ -96,7 +94,7 @@ public class DataManager {
     /**
      * Gets a user by username.
      * @param username The username
-     * @return The user or null if not found
+     * @return The user, or null if no such user exists
      */
     public User getUser(String username) {
         return users.get(username);
@@ -105,7 +103,7 @@ public class DataManager {
     /**
      * Creates a new user.
      * @param username The username for the new user
-     * @return The new user or null if username taken
+     * @return The newly created user, or null if a user with the same username already exists
      */
     public User createUser(String username) {
         if (users.containsKey(username) || username.equals(Admin.getAdminUsername())) {
@@ -121,12 +119,12 @@ public class DataManager {
     
     /**
      * Deletes a user.
-     * @param username The username to delete
-     * @return true if deleted, false otherwise
+     * @param username The username of the user to delete
+     * @return true if the user was deleted, false otherwise
      */
     public boolean deleteUser(String username) {
         if (username.equals("stock")) {
-            return false; // Can't delete stock user
+            return false; // Cannot delete stock user
         }
         
         User user = users.remove(username);
@@ -172,10 +170,55 @@ public class DataManager {
             
             saveUser(stockUser);
         }
+        
+        // Load stock photos
+        loadStockPhotos();
     }
     
     /**
-     * Loads the admin data from disk.
+     * Loads stock photos into the stock album.
+     */
+    private void loadStockPhotos() {
+        User stockUser = users.get("stock");
+        if (stockUser == null) return;
+        
+        Album stockAlbum = stockUser.getAlbum("stock");
+        if (stockAlbum == null) return;
+        
+        // Skip loading if the album already has photos
+        if (!stockAlbum.getPhotos().isEmpty()) return;
+        
+        File stockDir = new File(DATA_DIR + File.separator + "stock");
+        if (!stockDir.exists() || !stockDir.isDirectory()) {
+            stockDir.mkdirs();
+            return;
+        }
+        
+        // Load all image files from stock directory
+        File[] files = stockDir.listFiles((dir, name) -> {
+            String lowercaseName = name.toLowerCase();
+            return lowercaseName.endsWith(".jpg") || lowercaseName.endsWith(".jpeg") ||
+                   lowercaseName.endsWith(".png") || lowercaseName.endsWith(".gif") ||
+                   lowercaseName.endsWith(".bmp");
+        });
+        
+        if (files != null) {
+            for (File file : files) {
+                try {
+                    Photo photo = new Photo(file);
+                    stockAlbum.addPhoto(photo);
+                } catch (Exception e) {
+                    System.err.println("Error loading stock photo: " + file.getName() + " - " + e.getMessage());
+                }
+            }
+        }
+        
+        // Save the stock user with the loaded photos
+        saveUser(stockUser);
+    }
+    
+    /**
+     * Loads the admin from disk.
      */
     private void loadAdmin() {
         File adminFile = new File(ADMIN_FILE);
@@ -194,7 +237,7 @@ public class DataManager {
     
     /**
      * Loads a user from disk.
-     * @param username The username to load
+     * @param username The username of the user to load
      */
     private void loadUser(String username) {
         File userFile = getUserFile(username);

@@ -18,7 +18,7 @@ import photos.model.User;
 /**
  * Controller for the login screen.
  * Handles user login and directing to appropriate screens.
- * @author YourName
+ * @author Klever and Shrij
  */
 public class LoginController {
     

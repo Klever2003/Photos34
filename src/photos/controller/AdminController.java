@@ -21,7 +21,7 @@ import photos.model.DataManager;
 /**
  * Controller for the admin panel.
  * Handles creating, listing, and deleting users.
- * @author YourName
+ * @author Klever and Shrij
  */
 public class AdminController {
     

@@ -34,7 +34,7 @@ import photos.model.User;
 /**
  * Controller for the album view screen.
  * Handles displaying and managing photos in an album.
- * @author YourName
+ * @author Klever and Shrij
  */
 public class AlbumViewController {
     

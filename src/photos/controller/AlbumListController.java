@@ -30,7 +30,7 @@ import photos.model.User;
 /**
  * Controller for the album list view.
  * Shows all albums for a user and provides album management functions.
- * @author YourName
+ * @author Klever and Shrij
  */
 public class AlbumListController {
     
