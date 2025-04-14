@@ -42,7 +42,7 @@ import photos.model.User;
 
 /**
  * Controller for the search view.
- * Handles searching photos by date range or tags.
+ * Being able to search photos by date range or tags.
  * @author Klever and Shrij
  */
 public class SearchController {
@@ -142,7 +142,7 @@ public class SearchController {
     }
     
     /**
-     * Handles changing between date and tag search.
+     * Being able to change between date and tag search.
      */
     @FXML
     public void handleSearchTypeChange(ActionEvent event) {
@@ -156,7 +156,7 @@ public class SearchController {
     }
     
     /**
-     * Handles changing between single tag, AND, and OR searches.
+     * Changing between single tag, AND, and OR searches.
      */
     @FXML
     public void handleTagSearchTypeChange(ActionEvent event) {
@@ -164,7 +164,7 @@ public class SearchController {
     }
     
     /**
-     * Handles performing the search.
+     * Performing the search.
      */
     @FXML
     public void handleSearch(ActionEvent event) {
@@ -371,7 +371,7 @@ public class SearchController {
     }
     
     /**
-     * Handles creating an album from search results.
+     * Creation of an album from search results.
      */
     @FXML
     public void handleCreateAlbum(ActionEvent event) {
@@ -411,7 +411,7 @@ public class SearchController {
     }
     
     /**
-     * Handles going back to the album list.
+     * Going back to the album list.
      */
     @FXML
     public void handleBack(ActionEvent event) {

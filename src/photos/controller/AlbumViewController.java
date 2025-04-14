@@ -33,7 +33,7 @@ import photos.model.User;
 
 /**
  * Controller for the album view screen.
- * Handles displaying and managing photos in an album.
+ * Displaying and managing photos in an album.
  * @author Klever and Shrij
  */
 public class AlbumViewController {
@@ -175,7 +175,7 @@ public class AlbumViewController {
     }
     
     /**
-     * Handles adding a new photo to the album.
+     * Process of adding a new photo to the album.
      */
     @FXML
     public void handleAddPhoto(ActionEvent event) {
@@ -204,7 +204,7 @@ public class AlbumViewController {
     }
     
     /**
-     * Handles removing the selected photo from the album.
+     * Removing a photo from the album.
      */
     @FXML
     public void handleRemovePhoto(ActionEvent event) {
@@ -225,7 +225,7 @@ public class AlbumViewController {
     }
     
     /**
-     * Handles changing the caption of the selected photo.
+     * Caption changing.
      */
     @FXML
     public void handleCaptionPhoto(ActionEvent event) {
@@ -249,7 +249,7 @@ public class AlbumViewController {
     }
     
     /**
-     * Handles displaying the selected photo in a separate window.
+     * Displayment of the selected photo in a separate window.
      */
     @FXML
     public void handleDisplayPhoto(ActionEvent event) {
@@ -283,7 +283,7 @@ public class AlbumViewController {
     }
     
     /**
-     * Handles navigating to the previous photo in slideshow mode.
+     * Navigation to the previous photo in slideshow mode.
      */
     @FXML
     public void handleSlideshowBack(ActionEvent event) {
@@ -301,7 +301,7 @@ public class AlbumViewController {
     }
     
     /**
-     * Handles navigating to the next photo in slideshow mode.
+     * Similar process but to the next photo instead.
      */
     @FXML
     public void handleSlideshowForward(ActionEvent event) {
@@ -319,7 +319,7 @@ public class AlbumViewController {
     }
     
     /**
-     * Handles copying the selected photo to another album.
+     * Copying the selected photo to another album.
      */
     @FXML
     public void handleCopyPhoto(ActionEvent event) {
@@ -362,7 +362,7 @@ public class AlbumViewController {
     }
     
     /**
-     * Handles moving the selected photo to another album.
+     * Moving the photo to another album.
      */
     @FXML
     public void handleMovePhoto(ActionEvent event) {
@@ -408,7 +408,7 @@ public class AlbumViewController {
     }
     
     /**
-     * Handles adding a tag to the selected photo.
+     * Adding a tag.
      */
     @FXML
     public void handleTagPhoto(ActionEvent event) {
@@ -479,7 +479,7 @@ public class AlbumViewController {
     }
     
     /**
-     * Handles removing a tag from the selected photo.
+     * Being able to remove a tag.
      */
     @FXML
     public void handleRemoveTag(ActionEvent event) {
@@ -524,7 +524,7 @@ public class AlbumViewController {
     }
     
     /**
-     * Handles returning to the album list view.
+     * Important point of returning to the album list view.
      */
     @FXML
     public void handleBack(ActionEvent event) {

@@ -86,7 +86,7 @@ public class AlbumListController {
     }
     
     /**
-     * Handles creating a new album.
+     * Creating a new album.
      */
     @FXML
     public void handleCreateAlbum(ActionEvent event) {
@@ -108,7 +108,7 @@ public class AlbumListController {
     }
     
     /**
-     * Handles renaming the selected album.
+     * Renaming of user selected album.
      */
     @FXML
     public void handleRenameAlbum(ActionEvent event) {
@@ -144,7 +144,7 @@ public class AlbumListController {
     }
     
     /**
-     * Handles deleting the selected album.
+     * Deleting the selected album if the user desires.
      */
     @FXML
     public void handleDeleteAlbum(ActionEvent event) {
@@ -165,7 +165,7 @@ public class AlbumListController {
     }
     
     /**
-     * Handles opening the selected album.
+     * Opening the album.
      */
     @FXML
     public void handleOpenAlbum(ActionEvent event) {
@@ -194,7 +194,7 @@ public class AlbumListController {
     }
     
     /**
-     * Handles opening the search dialog.
+     * Search dialog option.
      */
     @FXML
     public void handleSearch(ActionEvent event) {
@@ -216,7 +216,7 @@ public class AlbumListController {
     }
     
     /**
-     * Handles logging out and returning to login screen.
+     * Logging out and returning to login screen.
      */
     @FXML
     public void handleLogout(ActionEvent event) {

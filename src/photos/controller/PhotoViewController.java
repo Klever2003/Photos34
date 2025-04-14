@@ -92,7 +92,7 @@ public class PhotoViewController {
     }
     
     /**
-     * Handles the close button click.
+     * This is the close button click.
      */
     @FXML
     public void handleClose(ActionEvent event) {

@@ -20,7 +20,7 @@ import photos.model.DataManager;
 
 /**
  * Controller for the admin panel.
- * Handles creating, listing, and deleting users.
+ * In charge of creating, listing, and deleting users.
  * @author Klever and Shrij
  */
 public class AdminController {
@@ -59,7 +59,7 @@ public class AdminController {
     }
     
     /**
-     * Handles creating a new user.
+     * Creating a new user.
      */
     @FXML
     public void handleCreateUser(ActionEvent event) {
@@ -105,7 +105,7 @@ public class AdminController {
     }
     
     /**
-     * Handles logging out and returning to login screen.
+     * Process in charge of logging out and returning to login screen.
      */
     @FXML
     public void handleLogout(ActionEvent event) {

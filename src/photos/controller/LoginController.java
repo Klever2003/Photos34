@@ -17,7 +17,7 @@ import photos.model.User;
 
 /**
  * Controller for the login screen.
- * Handles user login and directing to appropriate screens.
+ * In charge of user login and directing to appropriate screens.
  * @author Klever and Shrij
  */
 public class LoginController {
@@ -29,7 +29,7 @@ public class LoginController {
     private Button loginButton;
     
     /**
-     * Handles the login button click.
+     * The login button click.
      * Checks if username exists and routes to appropriate screen.
      */
     @FXML
